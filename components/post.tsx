@@ -20,12 +20,14 @@ const postCardStyle: any = {
   boxShadow: "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
   padding: "10px",
   width: "620px",
+  maxWidth: '95vw'
 };
 
 const imageContainerStyle: any = {
   position: "relative",
   width: "600px",
   height: "500px",
+  maxWidth: '90vw'
 };
 
 const commentsStyle: any = {
@@ -116,12 +118,14 @@ function Post({ post }: any) {
       )}
       {postType === PostType.EMBEDDED && (
         <div
+        
           style={{
             position: "relative",
             width: "100%",
             height: 300,
             left: 0,
             top: 0,
+            display: 'flex'
           }}
           dangerouslySetInnerHTML={{
             __html: htmlDecode(post?.secure_media_embed?.content),

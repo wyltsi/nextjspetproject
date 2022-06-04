@@ -1,23 +1,28 @@
 h1 {
-    color: #F0544F;
-    text-transform: uppercase;
-    font-weight: bold !important;
+  color: #f0544f;
+  text-transform: uppercase;
+  font-weight: bold !important;
 }
 
 h4 {
-    color: #000;
-    font-size: 16px !important;
-    padding: 20px;
-    text-align: center;
-    text-decoration: underline;
-    text-transform: capitalize;
+  color: #000;
+  font-size: 16px !important;
+  padding: 20px;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+iframe {
+  max-height: 100% !important;
+  margin: auto;
 }
 
 @keyframes spin-animation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(359deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(359deg);
+  }
+}

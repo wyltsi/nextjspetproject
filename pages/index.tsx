@@ -1,3 +1,4 @@
+import * as React from "react";
 import Head from "next/head";
 import Image from "next/image";
 // @ts-ignore
@@ -7,9 +8,20 @@ import Spinner from "../components/spinner";
 import PostList from "../components/post-list";
 import { useAsyncResource } from "use-async-resource";
 import { getPosts } from "./api/redditApi";
+import Sidebar from "../components/sidebar";
+
+const menuButtonStyle: any = {
+  position: "absolute",
+  left: 0,
+  top: 0,
+  margin: "10px",
+  height: "50px",
+  minWidth: "100px",
+};
 
 export default function Home() {
   const [postReader, getNewPosts] = useAsyncResource(getPosts, []);
+  const [sidebarVisible, setSidebarVisible] = React.useState<boolean>(false);
 
   useEffect(() => {
     getNewPosts();
@@ -24,8 +36,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Sidebar
+        hideSidebar={() => setSidebarVisible(false)}
+        sidebarVisible={sidebarVisible}
+      />
+
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Reddit posts query test</h1>
+        <button
+          style={menuButtonStyle}
+          id="roundButton"
+          onClick={() => setSidebarVisible(true)}
+        >
+          Menu
+        </button>
+        <h1 className={styles.title}>Quick Reddit Browser</h1>
         <Suspense fallback={<Spinner />}>
           <PostList postReader={postReader} />
         </Suspense>

@@ -10,6 +10,7 @@ const commentContainerStyle: any = {
 const commentStyle: any = {
   fontSize: "14px",
   margin: "10px 0",
+  wordWrap: 'break-word'
 };
 
 function CommentList({ commentReader }: any) {
